@@ -5,13 +5,38 @@
  */
 package artplus.tests;
 
+import artplus.entities.Commentaire;
+import artplus.entities.Post;
+import artplus.services.CommentaireServices;
+import artplus.services.PostServices;
+import artplus.utils.MyConnection;
+
 /**
  *
  * @author DELL
  */
 public class ArtPlus {
     public static void main(String[] args) {
+      // MyConnection mc = new MyConnection();
+       
         
+      /* PostServices pcd = new PostServices();
+        pcd.ajouterPost(); //ajout statique */
+       
+       PostServices pcd = new PostServices();
+       /* Post p2 = new Post("story", "first story", 100);
+        pcd.ajouterPost2(p2);*/
+        
+        System.out.println(pcd.afficherPost());
+        
+       /* CommentaireServices cd = new CommentaireServices();
+        cd.ajouterCommentaire();*/
+        
+       //CommentaireServices cd = new CommentaireServices();
+      /* Commentaire c2 = new Commentaire("my comment", 50, 100);
+        cd.ajouterCommentaire2(c2);*/
+        
+      //  System.out.println(cd.afficherCommentaire());
     }
     
 }
