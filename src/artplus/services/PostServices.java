@@ -7,6 +7,7 @@ package artplus.services;
 
 import artplus.entities.Post;
 import artplus.utils.MyConnection;
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,13 +23,18 @@ import java.util.List;
  * @author DELL
  */
 public class PostServices {
+    Connection  cnx;
+    
+    public  PostServices(){
+        cnx = MyConnection.getInstance().getConx();
+    }
     
     public void ajouterPost(){
         try {
             String requete = "INSERT INTO post(Type_Post,Description_Post,Nbre_Like_Post,Date_Post,Heure_Post)"
                     + "VALUES ('statut','first post','15','2023-02-13','13:56')";
             
-            Statement ste = new MyConnection().getConx().createStatement(); //ste va executer la requette
+            Statement ste = cnx.createStatement(); //ste va executer la requette
             ste.executeUpdate(requete);
             System.out.println("Post ajouté avec succès ");
         } catch (SQLException ex) {
@@ -42,7 +48,7 @@ public class PostServices {
        
             String requete2 = "INSERT INTO post (Type_Post,Description_Post,Nbre_Like_Post,Date_Post,Heure_Post)"
                     +" VALUES (?,?,?,?,?)";
-            PreparedStatement pst = new MyConnection().getConx().prepareStatement(requete2);
+            PreparedStatement pst = cnx.prepareStatement(requete2);
             pst.setString(1,p.getType_Post());
             pst.setString(2,p.getDescription_Post());
             pst.setInt(3,p.getNbre_Like_Post());
@@ -56,14 +62,35 @@ public class PostServices {
             System.err.println(ex.getMessage());
         }
 }
-                    
+     public void modifierPost(Post p) {
+        try {
+            String req = "UPDATE post SET Type_Post = '" + p.getType_Post() + "', description_Post = '" + p.getDescription_Post() + "' WHERE Id_Post = " + p.getId_Post();
+            Statement ste = cnx.createStatement();
+            ste.executeUpdate(req);
+            System.out.println("Post updated !");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+                   
+        public void supprimerPost(int Id_Post) {
+        try {
+            String req = "DELETE FROM post WHERE Id_Post = " + Id_Post;
+            Statement ste = cnx.createStatement();
+            ste.executeUpdate(req);
+            System.out.println("Post deleted !");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
     
     public List<Post> afficherPost(){
         List<Post> myList= new ArrayList<>();
         try {
             
             String requete3 = "SELECT * FROM post";
-            Statement ste = new MyConnection().getConx().createStatement();
+            Statement ste = cnx.createStatement();
             ResultSet rs = ste.executeQuery(requete3);
             while (rs.next()){
                 Post p = new Post();

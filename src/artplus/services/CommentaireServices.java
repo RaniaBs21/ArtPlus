@@ -8,6 +8,7 @@ package artplus.services;
 import artplus.entities.Commentaire;
 import artplus.entities.Post;
 import artplus.utils.MyConnection;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,12 +23,16 @@ import java.util.logging.Logger;
  * @author DELL
  */
 public class CommentaireServices {
+    Connection  cnx;
     
+    public CommentaireServices(){
+        cnx = MyConnection.getInstance().getConx();
+    }
     public void ajouterCommentaire(){
         try {
             String requete = "INSERT INTO commentaire (Description_Com,Nbre_Com,Nbre_Like_Com,Date_Com)"
                     + " VALUES ('ranoucha l 3asla','1','13','2023-02-13') ";
-            Statement st = new MyConnection().getConx().createStatement();
+            Statement st = cnx.createStatement();
             
             st.executeUpdate(requete);
             System.out.println("Commentaire ajouté avec sucès");
@@ -42,7 +47,7 @@ public class CommentaireServices {
          try {
             String requete2 = "INSERT INTO commentaire (Description_Com,Nbre_Com,Nbre_Like_Com,Date_Com)"
                     +" VALUES (?,?,?,?)";
-            PreparedStatement pst = new MyConnection().getConx().prepareStatement(requete2);
+            PreparedStatement pst = cnx.prepareStatement(requete2);
             pst.setString(1,c.getDescription_Com());
             pst.setInt(2,c.getNbre_Com());
             pst.setInt(3,c.getNbre_Like_Com());
@@ -57,12 +62,34 @@ public class CommentaireServices {
     
     }
      
+      public void modifierCommentaire(Commentaire c) {
+        try {
+            String req = "UPDATE commentaire SET description_Com = '" + c.getDescription_Com() + "' WHERE Id_Post = " + c.getId_Com();
+            Statement ste = cnx.createStatement();
+            ste.executeUpdate(req);
+            System.out.println("Comment updated !");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+      
+      public void supprimerCom(int Id_Com) {
+        try {
+            String req = "DELETE FROM commentaire WHERE Id_Com = " + Id_Com;
+            Statement ste = cnx.createStatement();
+            ste.executeUpdate(req);
+            System.out.println("Comment deleted !");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+     
      public List<Commentaire> afficherCommentaire(){
             List<Commentaire> myList= new ArrayList<>();
         try {
             
             String requete3 = "SELECT * FROM commentaire";
-            Statement ste = new MyConnection().getConx().createStatement();
+            Statement ste = cnx.createStatement();
             ResultSet rs = ste.executeQuery(requete3);
             while (rs.next()){
                 Commentaire c = new Commentaire();

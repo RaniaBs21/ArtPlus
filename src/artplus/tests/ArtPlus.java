@@ -17,17 +17,24 @@ import artplus.utils.MyConnection;
  */
 public class ArtPlus {
     public static void main(String[] args) {
-      // MyConnection mc = new MyConnection();
+      MyConnection mc = MyConnection.getInstance();
+      //MyConnection mc2 = MyConnection.getInstance();
+      //  System.out.println(mc.hashCode()+" - "+mc2.hashCode());
        
         
       /* PostServices pcd = new PostServices();
         pcd.ajouterPost(); //ajout statique */
        
-       PostServices pcd = new PostServices();
+       //PostServices pcd = new PostServices();
        /* Post p2 = new Post("story", "first story", 100);
         pcd.ajouterPost2(p2);*/
+       
+       //pcd.supprimerPost(5);
+         
+         
+         //pcd.modifierPost(p);
         
-        System.out.println(pcd.afficherPost());
+        //System.out.println(pcd.afficherPost());
         
        /* CommentaireServices cd = new CommentaireServices();
         cd.ajouterCommentaire();*/
@@ -35,8 +42,8 @@ public class ArtPlus {
        //CommentaireServices cd = new CommentaireServices();
       /* Commentaire c2 = new Commentaire("my comment", 50, 100);
         cd.ajouterCommentaire2(c2);*/
-        
-      //  System.out.println(cd.afficherCommentaire());
+       // cd.supprimerCom(5);
+       //System.out.println(cd.afficherCommentaire());
     }
     
 }

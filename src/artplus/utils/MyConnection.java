@@ -18,9 +18,9 @@ public class MyConnection {
     public String user="root";
     public String pwd="";
     Connection conx;
-
+    public static MyConnection instance;
     
-     public MyConnection(){
+     private MyConnection(){
         
         try {
             conx = DriverManager.getConnection(url, user, pwd);
@@ -35,7 +35,12 @@ public class MyConnection {
           return conx;
     }
 
-  
+    public static MyConnection getInstance(){
+        if (instance == null){
+            instance = new MyConnection();
+        }
+        return instance;
+    }
     
     
 }
