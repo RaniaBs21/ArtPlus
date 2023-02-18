@@ -28,7 +28,7 @@ public class PostServices implements InterfacePostServices {
     public  PostServices(){
         cnx = MyConnection.getInstance().getConx();
     }
-    
+    @Override
     public void ajouterPost(){
         try {
             String requete = "INSERT INTO post(Type_Post,Description_Post,Nbre_Like_Post,Date_Post,Heure_Post)"
@@ -42,7 +42,7 @@ public class PostServices implements InterfacePostServices {
 
         }
     }
-    
+    @Override
      public void ajouterPost2(Post p){
     try {
        
@@ -62,6 +62,7 @@ public class PostServices implements InterfacePostServices {
             System.err.println(ex.getMessage());
         }
 }
+     @Override
      public void modifierPost(Post p) {
         try {
             String req = "UPDATE post SET Type_Post = '" + p.getType_Post() + "', description_Post = '" + p.getDescription_Post() + "' WHERE Id_Post = " + p.getId_Post();
@@ -72,7 +73,7 @@ public class PostServices implements InterfacePostServices {
             System.out.println(ex.getMessage());
         }
     }
-                   
+       @Override     
         public void supprimerPost(int Id_Post) {
         try {
             String req = "DELETE FROM post WHERE Id_Post = " + Id_Post;
@@ -84,7 +85,7 @@ public class PostServices implements InterfacePostServices {
         }
     }
 
-    
+    @Override
     public List<Post> afficherPost(){
         List<Post> myList= new ArrayList<>();
         try {

@@ -28,6 +28,8 @@ public class CommentaireServices implements InterfaceCommentaireServices{
     public CommentaireServices(){
         cnx = MyConnection.getInstance().getConx();
     }
+    
+    @Override
     public void ajouterCommentaire(){
         try {
             String requete = "INSERT INTO commentaire (Description_Com,Nbre_Com,Nbre_Like_Com,Date_Com)"
@@ -42,7 +44,7 @@ public class CommentaireServices implements InterfaceCommentaireServices{
         }
     
     }
-    
+    @Override
      public void ajouterCommentaire2(Commentaire c){
          try {
             String requete2 = "INSERT INTO commentaire (Description_Com,Nbre_Com,Nbre_Like_Com,Date_Com)"
@@ -64,18 +66,35 @@ public class CommentaireServices implements InterfaceCommentaireServices{
     }
      
      
-      public void modifierCommentaire(Commentaire c) {
+   @Override
+    public void modifierCommentaire(Commentaire c) {
         try {
-          // String req = "UPDATE commentaire SET description_Com = '" + c.getDescription_Com() + "' WHERE 'commentaire'.'Id_Post' =" + c.getId_Com();
-           String req = "UPDATE commentaire SET Id_Com="+c.getId_Com()+",Description_Com="+c.getDescription_Com()+" WHERE 1";
-           Statement ste = cnx.createStatement();
-            ste.executeUpdate(req);
-            System.out.println("Comment updated !");
+            String req = "UPDATE commentaire SET Description_Com = ? WHERE Id_Com = "+c.getId_Com();
+
+            PreparedStatement pst = cnx.prepareStatement(req);
+
+            pst.setString(1, c.getDescription_Com()); 
+            pst.executeUpdate();
+            System.out.println("comment modifié !");
+        } catch (SQLException ex) {
+            System.out.println("comment non modifié !");
+            System.out.println(ex.getMessage());
+        }
+    }
+     
+   /*  @Override
+    public void modifierCommentaire(Commentaire c) {
+        try {
+                String reqModif = "UPDATE commentaire SET Description_Com = '" + c.getDescription_Com() + "' WHERE commentaire.`Id_Com` = " + c.getId_Com();
+            Statement st = cnx.createStatement();
+            st.executeUpdate(reqModif);
+            System.out.println("comment updated !");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
-      
+    */
+    @Override
       public void supprimerCom(int Id_Com) {
         try {
             String req = "DELETE FROM commentaire WHERE Id_Com = " + Id_Com;
@@ -86,7 +105,8 @@ public class CommentaireServices implements InterfaceCommentaireServices{
             System.out.println(ex.getMessage());
         }
     }
-     
+      
+     @Override
      public List<Commentaire> afficherCommentaire(){
             List<Commentaire> myList= new ArrayList<>();
         try {

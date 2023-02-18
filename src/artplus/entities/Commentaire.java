@@ -43,6 +43,12 @@ public class Commentaire {
     
     }
 
+    public Commentaire(int Id_Com, String Description_Com) {
+        this.Id_Com = Id_Com;
+        this.Description_Com = Description_Com;
+    }
+    
+
     public int getId_Com() {
         return Id_Com;
     }

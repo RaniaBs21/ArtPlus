@@ -22,11 +22,15 @@ public class ArtPlus {
         PostServices crud = new PostServices();
         crud.ajouterPost2(p);*/
         
-       Commentaire c= new Commentaire("ranoucha", 1, 100);
+       
         CommentaireServices cr = new CommentaireServices();
+        Commentaire c= new Commentaire("ranou", 100, 100);
         //cr.ajouterCommentaire2(c);
         cr.modifierCommentaire(c);
-
+        //cr.supprimerCom(1);
+        
+       
+        
 
 //MyConnection mc2 = MyConnection.getInstance();
       //  System.out.println(mc.hashCode()+" - "+mc2.hashCode());
