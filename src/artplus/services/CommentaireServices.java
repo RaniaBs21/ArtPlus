@@ -59,12 +59,15 @@ public class CommentaireServices implements InterfaceCommentaireServices{
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
+         
     
     }
      
+     
       public void modifierCommentaire(Commentaire c) {
         try {
-           String req = "UPDATE commentaire SET description_Com = '" + c.getDescription_Com() + "' WHERE 'commentaire'.'Id_Post' =" + c.getId_Com();
+          // String req = "UPDATE commentaire SET description_Com = '" + c.getDescription_Com() + "' WHERE 'commentaire'.'Id_Post' =" + c.getId_Com();
+           String req = "UPDATE commentaire SET Id_Com="+c.getId_Com()+",Description_Com="+c.getDescription_Com()+" WHERE 1";
            Statement ste = cnx.createStatement();
             ste.executeUpdate(req);
             System.out.println("Comment updated !");

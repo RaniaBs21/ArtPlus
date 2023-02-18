@@ -22,10 +22,10 @@ public class ArtPlus {
         PostServices crud = new PostServices();
         crud.ajouterPost2(p);*/
         
-       Commentaire c= new Commentaire("ranouch", 1, 100);
+       Commentaire c= new Commentaire("ranoucha", 1, 100);
         CommentaireServices cr = new CommentaireServices();
-        cr.ajouterCommentaire2(c);
-        //cr.modifierCommentaire(c);
+        //cr.ajouterCommentaire2(c);
+        cr.modifierCommentaire(c);
 
 
 //MyConnection mc2 = MyConnection.getInstance();
