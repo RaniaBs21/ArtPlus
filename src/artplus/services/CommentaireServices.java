@@ -22,7 +22,7 @@ import java.util.logging.Logger;
  *
  * @author DELL
  */
-public class CommentaireServices {
+public class CommentaireServices implements InterfaceCommentaireServices{
     Connection  cnx;
     
     public CommentaireServices(){
@@ -64,8 +64,9 @@ public class CommentaireServices {
      
       public void modifierCommentaire(Commentaire c) {
         try {
-            String req = "UPDATE commentaire SET description_Com = '" + c.getDescription_Com() + "' WHERE Id_Post = " + c.getId_Com();
-            Statement ste = cnx.createStatement();
+           // String req = "UPDATE commentaire SET description_Com = '" + c.getDescription_Com() + "' WHERE Id_Post = " + c.getId_Com();
+            String req = "UPDATE commentaire SET Description_Com= "+c.getDescription_Com() +"'WHERE Id_Post= '"+ c.getId_Com();
+           Statement ste = cnx.createStatement();
             ste.executeUpdate(req);
             System.out.println("Comment updated !");
         } catch (SQLException ex) {

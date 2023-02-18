@@ -22,7 +22,7 @@ import java.util.List;
  *
  * @author DELL
  */
-public class PostServices {
+public class PostServices implements InterfacePostServices {
     Connection  cnx;
     
     public  PostServices(){

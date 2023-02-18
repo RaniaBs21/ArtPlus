@@ -18,7 +18,17 @@ import artplus.utils.MyConnection;
 public class ArtPlus {
     public static void main(String[] args) {
       MyConnection mc = MyConnection.getInstance();
-      //MyConnection mc2 = MyConnection.getInstance();
+      /*Post p = new Post("img","img",50);
+        PostServices crud = new PostServices();
+        crud.ajouterPost2(p);*/
+        
+       Commentaire c= new Commentaire("ranoucha", 10, 100);
+        CommentaireServices cr = new CommentaireServices();
+        //cr.ajouterCommentaire2(c);
+        cr.modifierCommentaire(c);
+
+
+//MyConnection mc2 = MyConnection.getInstance();
       //  System.out.println(mc.hashCode()+" - "+mc2.hashCode());
        
         
