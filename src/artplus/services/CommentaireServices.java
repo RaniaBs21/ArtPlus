@@ -64,8 +64,7 @@ public class CommentaireServices implements InterfaceCommentaireServices{
      
       public void modifierCommentaire(Commentaire c) {
         try {
-           // String req = "UPDATE commentaire SET description_Com = '" + c.getDescription_Com() + "' WHERE Id_Post = " + c.getId_Com();
-            String req = "UPDATE commentaire SET Description_Com= "+c.getDescription_Com() +"'WHERE Id_Post= '"+ c.getId_Com();
+           String req = "UPDATE commentaire SET description_Com = '" + c.getDescription_Com() + "' WHERE 'commentaire'.'Id_Post' =" + c.getId_Com();
            Statement ste = cnx.createStatement();
             ste.executeUpdate(req);
             System.out.println("Comment updated !");
