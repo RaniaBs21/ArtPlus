@@ -70,8 +70,8 @@ public class AccueilController implements Initializable {
         
         btn_que.setOnAction(event -> {
                     try {
-                Parent page1 = FXMLLoader.load(getClass().getResource("/view/FXMLQuestion.fxml"));
-                Scene scene = new Scene(page1);
+                Parent page3 = FXMLLoader.load(getClass().getResource("/view/FXMLQuestion.fxml"));
+                Scene scene = new Scene(page3);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(scene);
                 stage.show();

@@ -6,6 +6,7 @@
 package Controller;
 
 import artplus.entities.Question_ass;
+import artplus.services.Question_assCRUD;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -81,14 +82,20 @@ Connection con;
 
     @FXML
     private void add(ActionEvent event) {
+        Question_assCRUD q = new Question_assCRUD();
+        q.ajouterquestion2(new Question_ass(Integer.parseInt(txtNum_Q_Ass.getText()),txtType_Q_Ass.getText() ));
     }
 
     @FXML
     private void update(ActionEvent event) {
+      Question_assCRUD q = new Question_assCRUD();
+        q.modifierquestion(new Question_ass(Integer.parseInt(txtNum_Q_Ass.getText()),txtType_Q_Ass.getText() ));
     }
 
     @FXML
     private void delete(ActionEvent event) {
+    Question_assCRUD q = new Question_assCRUD();
+         q.supprimerquestion(id);
     }
     
 }

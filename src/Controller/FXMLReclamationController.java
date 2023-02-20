@@ -99,21 +99,23 @@ Connection con;
         // TODO
         Connect();
     }    
-    @FXML
-    private void ajouterreclamation(ActionEvent event) throws IOException {
-        ReclamationCRUD rec = new ReclamationCRUD();
-    }
-
+ 
     @FXML
     private void add(ActionEvent event) {
+         ReclamationCRUD rec = new ReclamationCRUD();
+        rec.ajouterreclamation2(new Reclamation(Integer.parseInt(txtNum_Rec.getText()),txtDescription_Rec.getText(),txtType_Rec.getText() ));
     }
 
     @FXML
     private void update(ActionEvent event) {
+        ReclamationCRUD rec = new ReclamationCRUD();
+        rec.modifierreclamation(new Reclamation(Integer.parseInt(txtNum_Rec.getText()),txtDescription_Rec.getText(),txtType_Rec.getText() ));
     }
 
     @FXML
     private void delete(ActionEvent event) {
+         ReclamationCRUD rec = new ReclamationCRUD();
+         rec.supprimerreclamation(id);
     }
     
 }

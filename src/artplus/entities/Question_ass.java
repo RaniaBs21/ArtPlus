@@ -23,6 +23,10 @@ public class Question_ass {
         this.Num_Q_Ass = Num_Q_Ass;
         this.Type_Q_Ass = Type_Q_Ass;
     }
+
+    public Question_ass(int Id_Q_Ass) {
+        this.Id_Q_Ass = Id_Q_Ass;
+    }
     
     public Question_ass(){
     

@@ -33,7 +33,7 @@
             <TableColumn fx:id="descriptioncolmn" prefWidth="174.39999389648438" text="Description_Rec" />
         </columns>
       </TableView>
-      <Button fx:id="btnajouter" layoutX="14.0" layoutY="279.0" mnemonicParsing="false" onAction="#ajoutreclamation" text="Ajouter" textFill="#ff7700" />
+      <Button fx:id="btnajouter" layoutX="14.0" layoutY="279.0" mnemonicParsing="false" onAction="#add" text="Ajouter" textFill="#ff7700" />
       <Button fx:id="btnmodifier" layoutX="132.0" layoutY="279.0" mnemonicParsing="false" onAction="#update" text="Modifier" textFill="#ff7700" />
       <Button fx:id="btnsupprimer" layoutX="240.0" layoutY="279.0" mnemonicParsing="false" onAction="#delete" text="Supprimer" textFill="#ff7700" />
    </children>

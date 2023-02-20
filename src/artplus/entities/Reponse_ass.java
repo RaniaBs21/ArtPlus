@@ -25,6 +25,10 @@ public class Reponse_ass {
         this.Type_Rep_Ass = Type_Rep_Ass;
         this.Description_Rep_Ass = Description_Rep_Ass;
     }
+
+    public Reponse_ass(int Id_Rep_Ass) {
+        this.Id_Rep_Ass = Id_Rep_Ass;
+    }
     
      public Reponse_ass(){
     

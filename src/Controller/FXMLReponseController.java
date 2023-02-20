@@ -6,6 +6,7 @@
 package Controller;
 
 import artplus.entities.Reponse_ass;
+import artplus.services.Reponse_assCRUD;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -86,14 +87,19 @@ Connection con;
 
     @FXML
     private void add(ActionEvent event) {
+        Reponse_assCRUD repa = new Reponse_assCRUD();
+        repa.ajouterreponse2(new Reponse_ass(Integer.parseInt(txtNum_Rep_Ass.getText()),txtDescription_Rep_Ass.getText(),txtType_Rep_Ass.getText() ));
     }
 
     @FXML
     private void update(ActionEvent event) {
+       Reponse_assCRUD repa = new Reponse_assCRUD();
+        repa.modifierreponse(new Reponse_ass(Integer.parseInt(txtNum_Rep_Ass.getText()),txtDescription_Rep_Ass.getText(),txtType_Rep_Ass.getText() ));
     }
 
     @FXML
     private void delete(ActionEvent event) {
+         Reponse_assCRUD repa = new Reponse_assCRUD();
+         repa.supprimerreponse(id);
     }
-    
 }

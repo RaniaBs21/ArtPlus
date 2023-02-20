@@ -25,7 +25,7 @@ public class Reponse_assCRUD implements InterfaceReponse_ass {
     
     public void ajouterreponse(){
         try {
-            String requete = "INSERT INTO reponse(Type_Rep_Ass,Num_Rep_Ass,Description_Rep_Ass)"
+            String requete = "INSERT INTO Reponse_ass(Type_Rep_Ass,Num_Rep_Ass,Description_Rep_Ass)"
                     + "VALUES ('solution,'1','description reponse')";
             
             Statement ste = cnx.createStatement();
@@ -40,8 +40,8 @@ public class Reponse_assCRUD implements InterfaceReponse_ass {
      public void ajouterreponse2(Reponse_ass a){
     try {
        
-            String requete2 = "INSERT INTO reponse (Type_Rep_Ass,Num_Rep_Ass,Description_Rep_Ass)"
-                    +" VALUES (?,?,?,)";
+            String requete2 = "INSERT INTO Reponse_ass (Type_Rep_Ass,Num_Rep_Ass,Description_Rep_Ass)"
+                    +" VALUES (?,?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete2);
             pst.setString(1,a.getType_Rep_Ass());
             pst.setInt(2,a.getNum_Rep_Ass());
@@ -57,7 +57,7 @@ public class Reponse_assCRUD implements InterfaceReponse_ass {
 }
      public void modifierreponse(Reponse_ass a) {
         try {
-            String req = "UPDATE reponse SET Type_Rep_Ass = '" + a.getType_Rep_Ass() + "', Num_Rep_Ass = '" + a.getNum_Rep_Ass() + "' WHERE Id_Q_Ass = " + a.getId_Rep_Ass();
+            String req = "UPDATE Reponse_ass SET Type_Rep_Ass = '" + a.getType_Rep_Ass() + "', Num_Rep_Ass = '" + a.getNum_Rep_Ass() + "' WHERE Id_Q_Ass = " + a.getId_Rep_Ass();
             Statement ste = cnx.createStatement();
             ste.executeUpdate(req);
             System.out.println("reponse updated !");
@@ -68,7 +68,7 @@ public class Reponse_assCRUD implements InterfaceReponse_ass {
                    
         public void supprimerreponse(int Id_Rep_Ass) {
         try {
-            String req = "DELETE FROM reponse WHERE Id_Rep_Ass = " + Id_Rep_Ass;
+            String req = "DELETE FROM Reponse_ass WHERE Id_Rep_Ass = " + Id_Rep_Ass;
             Statement ste = cnx.createStatement();
             ste.executeUpdate(req);
             System.out.println("reponse deleted !");
@@ -82,7 +82,7 @@ public class Reponse_assCRUD implements InterfaceReponse_ass {
         List<Reponse_ass> myList= new ArrayList<>();
         try {
             
-            String requete3 = "SELECT * FROM reponse";
+            String requete3 = "SELECT * FROM Reponse_ass";
             Statement ste = cnx.createStatement();
             ResultSet rs = ste.executeQuery(requete3);
             while (rs.next()){

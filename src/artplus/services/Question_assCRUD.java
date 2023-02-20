@@ -24,7 +24,7 @@ public class Question_assCRUD  implements InterfaceQuestion_ass {
     
     public void ajouterquestion(){
         try {
-            String requete = "INSERT INTO question(Type_Q_Ass,Num_Q_Ass)"
+            String requete = "INSERT INTO Question_ass(Type_Q_Ass,Num_Q_Ass)"
                     + "VALUES ('error','1',)";
             
             Statement ste = cnx.createStatement();
@@ -39,8 +39,8 @@ public class Question_assCRUD  implements InterfaceQuestion_ass {
      public void ajouterquestion2(Question_ass q){
     try {
        
-            String requete2 = "INSERT INTO question (Type_Q_Ass,Num_Q_Ass)"
-                    +" VALUES (?,?,)";
+            String requete2 = "INSERT INTO Question_ass (Type_Q_Ass,Num_Q_Ass)"
+                    +" VALUES (?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete2);
             pst.setString(1,q.getType_Q_Ass());
             pst.setInt(2,q.getNum_Q_Ass());
@@ -55,7 +55,7 @@ public class Question_assCRUD  implements InterfaceQuestion_ass {
 }
      public void modifierquestion(Question_ass q) {
         try {
-            String req = "UPDATE question SET Type_Q_Ass = '" + q.getType_Q_Ass() + "', Num_Q_Ass = '" + q.getNum_Q_Ass() + "' WHERE Id_Q_Ass = " + q.getId_Q_Ass();
+            String req = "UPDATE Question_ass SET Type_Q_Ass = '" + q.getType_Q_Ass() + "', Num_Q_Ass = '" + q.getNum_Q_Ass() + "' WHERE Id_Q_Ass = " + q.getId_Q_Ass();
             Statement ste = cnx.createStatement();
             ste.executeUpdate(req);
             System.out.println("question updated !");
@@ -66,7 +66,7 @@ public class Question_assCRUD  implements InterfaceQuestion_ass {
                    
         public void supprimerquestion(int Id_Q_Ass) {
         try {
-            String req = "DELETE FROM question WHERE Id_Post = " + Id_Q_Ass;
+            String req = "DELETE FROM Question_ass WHERE Id_Post = " + Id_Q_Ass;
             Statement ste = cnx.createStatement();
             ste.executeUpdate(req);
             System.out.println("question deleted !");
@@ -80,7 +80,7 @@ public class Question_assCRUD  implements InterfaceQuestion_ass {
         List<Question_ass> myList= new ArrayList<>();
         try {
             
-            String requete3 = "SELECT * FROM question";
+            String requete3 = "SELECT * FROM Question_ass";
             Statement ste = cnx.createStatement();
             ResultSet rs = ste.executeQuery(requete3);
             while (rs.next()){

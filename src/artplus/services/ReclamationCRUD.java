@@ -42,9 +42,9 @@ public class ReclamationCRUD implements InterfaceReclamation {
             String requete2 = "INSERT INTO reclamation (Num_Rec,Type_Rec,Description_Rec)"
                     +" VALUES (?,?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete2);
-            pst.setString(1,r.getType_Rec());
-            pst.setString(2,r.getDescription_Rec());
-            pst.setString(3,r.getNum_Rec());
+            pst.setString(2,r.getType_Rec());
+            pst.setString(3,r.getDescription_Rec());
+            pst.setInt(1,r.getNum_Rec());
 
          
             pst.executeUpdate();
@@ -89,7 +89,7 @@ public class ReclamationCRUD implements InterfaceReclamation {
                 r.setId_Rec(rs.getInt(1));
                 r.setType_Rec(rs.getString("Type_Rec"));
                 r.setDescription_Rec(rs.getString("Description_Rec"));
-                r.setNum_Rec(rs.getString("Num_Rec"));
+                r.setNum_Rec(rs.getInt(4));
                 
 
                 myList.add(r);   
