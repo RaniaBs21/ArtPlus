@@ -17,6 +17,7 @@ public class Utilisateur {
     private String Password_Ut;
     private String Adresse_Ut;
     private String Num_Tel_Ut;
+  
 
     public Utilisateur(int Id_Ut, String Nom_Ut, String Prenom_Ut, String Email_Ut, String Password_Ut, String Adresse_Ut, String Num_Tel_Ut) {
         this.Id_Ut = Id_Ut;
@@ -35,6 +36,10 @@ public class Utilisateur {
         this.Password_Ut = Password_Ut;
         this.Adresse_Ut = Adresse_Ut;
         this.Num_Tel_Ut = Num_Tel_Ut;
+    }
+
+    public Utilisateur() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getId_Ut() {

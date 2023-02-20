@@ -37,6 +37,10 @@ public class Admin {
         this.Num_Tel_Ad = Num_Tel_Ad;
     }
 
+    public Admin() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getId_Ad() {
         return Id_Ad;
     }
@@ -96,6 +100,34 @@ public class Admin {
     @Override
     public String toString() {
         return "Admin{" + "Id_Ad=" + Id_Ad + ", Nom_Ad=" + Nom_Ad + ", Prenom_Ad=" + Prenom_Ad + ", Email_Ad=" + Email_Ad + ", Password_Ad=" + Password_Ad + ", Adresse_Ad=" + Adresse_Ad + ", Num_Tel_Ad=" + Num_Tel_Ad + '}';
+    }
+
+    public void setId_Gd(int aInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setNom_Gd(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setPrenom_Gd(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setEmail_Gd(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setPassword_Gd(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setAdresse_Gd(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setNum_Tel_Gd(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

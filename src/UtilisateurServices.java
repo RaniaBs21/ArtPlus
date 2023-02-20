@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package artplus.services;
 
 import artplus.entities.Utilisateur;
+import artplus.services.InterfaceUtilisateurServices;
 import artplus.utils.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,9 +10,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author OACA
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 public class UtilisateurServices implements InterfaceUtilisateurServices {
     
@@ -36,7 +32,7 @@ public class UtilisateurServices implements InterfaceUtilisateurServices {
             Statement st = cnx.createStatement();
             
             st.executeUpdate(requete);
-            System.out.println("utilisateur ajouté avec sucès");
+            System.out.println("utilisateur ajouté avec suceés");
             
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
@@ -48,7 +44,7 @@ public class UtilisateurServices implements InterfaceUtilisateurServices {
   @Override
      public void ajouterUtilisateur2(Utilisateur u){
          try {
-            String requete2 = "INSERT INTO utilisateur (Nom_Ut,Prenom_Ut,Email_Ut,Password_Ut,Adresse_Ut,Num_Tel_Ut)"
+            String requete2 = "INSERT INTO guide (Nom_Ut,Prenom_Ut,Email_Ut,Password_Ut,Adresse_Ut,Num_Tel_Ut)"
                     +" VALUES (?,?,?,?,?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete2);
             pst.setString(1,u.getNom_Ut());
@@ -59,7 +55,7 @@ public class UtilisateurServices implements InterfaceUtilisateurServices {
             pst.setString(6,u.getNum_Tel_Ut());
          
             pst.executeUpdate();
-            System.out.println("votre utilisateur est ajoutée");
+            System.out.println("votre utlisateur est ajoutée");
             
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
@@ -74,7 +70,7 @@ public class UtilisateurServices implements InterfaceUtilisateurServices {
             String reqModif = "UPDATE utilisateur SET Nom_Ut = '" + u.getNom_Ut() + "', Prenom_Ut = '" + u.getPrenom_Ut() + "', Email_Ut = '" + u.getEmail_Ut() + "', Password_Ut= '" + u.getPassword_Ut() + "', Adresse_Ut = '" + u.getAdresse_Ut() + "', Num_Tel_Ut = '" + u.getNum_Tel_Ut() + "' WHERE utilisateur.`Id_Ut` = " + u.getId_Ut();
             Statement st = cnx.createStatement();
             st.executeUpdate(reqModif);
-            System.out.println("utilisateur updated !");
+            System.out.println("Utilisateur updated !");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
