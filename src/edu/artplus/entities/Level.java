@@ -12,6 +12,7 @@ package edu.artplus.entities;
 public class Level {
     private  int Id_level ;
     private  int Nom_level ;
+    private Cours Id_c ;
 
     public Level(int Id_level, int Nom_level) {
         this.Id_level = Id_level;

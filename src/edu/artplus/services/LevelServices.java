@@ -19,7 +19,7 @@ import java.util.List;
 
     
 
-public class LevelServices {
+public class LevelServices implements InterfaceLevel{
     Connection  cnx;
     
     public LevelServices(){
@@ -54,14 +54,14 @@ public class LevelServices {
             System.out.println("la level n'est pas ajoutée");
         }
 }
-     public void modifierCours(Level lev) {
+     public void modifierLevel(Level lev) {
         try {
-            String req = "UPDATE cours SET Nom_level= '" + lev.getNom_level() + "' WHERE Id_level = " + lev.getId_level();
+            String req = "UPDATE level SET Nom_level= '" + lev.getNom_level() + "' WHERE Id_level = " + lev.getId_level();
             Statement ste = cnx.createStatement();
             ste.executeUpdate(req);
-            System.out.println("Level updated !");
+            System.out.println("Level est modifié !");
         } catch (SQLException ex) {
-            System.out.println("Level not updated !");
+            System.out.println("Level n'est pas modifié !");
         }
     }
         
@@ -95,7 +95,7 @@ public class LevelServices {
             String req = "DELETE FROM level_cours WHERE Id_level = " + Id_level;
             Statement ste = cnx.createStatement();
             ste.executeUpdate(req);
-            System.out.println("level deleted !");
+            System.out.println("level est supprimé !");
         } catch (SQLException ex) {
             System.out.println("level n'est pas supprimé");
         }

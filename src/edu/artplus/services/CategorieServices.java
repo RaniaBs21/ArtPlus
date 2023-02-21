@@ -24,7 +24,7 @@ import java.util.List;
 
     
 
-public class CategorieServices {
+public class CategorieServices implements InterfaceCategorie {
     Connection  cnx;
     
     public CategorieServices(){
@@ -59,14 +59,14 @@ public class CategorieServices {
             System.out.println("la categorie n'est pas ajoutée");
         }
 }
-     public void modifierCours(Categorie_cours cat) {
+     public void modifierCategorie(Categorie_cours cat) {
         try {
             String req = "UPDATE categorie_cours SET Nom_cat= '" + cat.getNom_cat() + "' WHERE Id_cat = " + cat.getId_cat();
             Statement ste = cnx.createStatement();
             ste.executeUpdate(req);
-            System.out.println("Level updated !");
+            System.out.println("Categorie est modifiée !");
         } catch (SQLException ex) {
-            System.out.println("Level not updated !");
+            System.out.println("Categorie  n'est pas modifiée !");
         }
     }
         
@@ -100,9 +100,9 @@ public class CategorieServices {
             String req = "DELETE FROM categorie_cours WHERE Id_cat = " + Id_cat;
             Statement ste = cnx.createStatement();
             ste.executeUpdate(req);
-            System.out.println("Categorie deleted !");
+            System.out.println("Categorie est supprimée!");
         } catch (SQLException ex) {
-            System.out.println("Categorie n'est pas supprimé");
+            System.out.println("Categorie n'est pas supprimée");
         }
     }
 
