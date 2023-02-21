@@ -18,11 +18,14 @@ import artplus.utils.MyConnection;
 public class ArtPlus {
     public static void main(String[] args) {
       MyConnection mc = MyConnection.getInstance();
-      /*Post p = new Post("img","img",50);
-        PostServices crud = new PostServices();
-        crud.ajouterPost2(p);*/
+      //Post p = new Post("img","img",50);
+        PostServices ps = new PostServices();
+     //   Post p = new Post(9,"post","rania",50,java.sql.Date.valueOf("2023-02-21"),java.sql.Time.valueOf("12:44:50");
+       // ps.ajouterPost2(p);
+     //   ps.modifierPost(p);
+        //ps.supprimerCom(1);
         
-       
+        
         CommentaireServices cr = new CommentaireServices();
         Commentaire c= new Commentaire("ranou", 100, 100);
         //cr.ajouterCommentaire2(c);

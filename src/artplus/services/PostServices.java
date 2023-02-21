@@ -62,7 +62,7 @@ public class PostServices implements InterfacePostServices {
             System.err.println(ex.getMessage());
         }
 }
-     @Override
+    /* @Override
      public void modifierPost(Post p) {
         try {
             String req = "UPDATE post SET Type_Post = '" + p.getType_Post() + "', description_Post = '" + p.getDescription_Post() + "' WHERE Id_Post = " + p.getId_Post();
@@ -72,7 +72,23 @@ public class PostServices implements InterfacePostServices {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+    }*/
+     
+     @Override
+    public void modifierPost(Post p)  {
+        try {
+            String reqModif = "UPDATE post SET Type_Post = '" + p.getType_Post() + "', description_Post = '" + p.getDescription_Post() + "', Nbre_Like_Post = '" + p.getNbre_Like_Post() + "', Date_Post = '" + p.getDate_Post() + "', Heure_Post = '" + p.getHeure_Post() +  "' WHERE post.`Id_Post` = " + p.getId_Post();
+            Statement st = cnx.createStatement();
+            st.executeUpdate(reqModif);
+            System.out.println("Post updated !");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
+
+   
+    
+    
        @Override     
         public void supprimerPost(int Id_Post) {
         try {
