@@ -5,7 +5,6 @@
  */
 package artplus.services;
 import artplus.entities.Commentaire;
-import artplus.entities.Post;
         
 import java.util.List;
 

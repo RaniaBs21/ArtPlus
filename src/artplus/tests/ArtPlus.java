@@ -26,7 +26,7 @@ public class ArtPlus {
         CommentaireServices cr = new CommentaireServices();
         Commentaire c= new Commentaire("ranou", 100, 100);
         //cr.ajouterCommentaire2(c);
-        cr.modifierCommentaire(c);
+       // cr.modifierCommentaire(c);
         //cr.supprimerCom(1);
         
        
