@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="artplus.controller.Page2Controller">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="10.0" layoutY="10.0" prefHeight="567.0" prefWidth="791.0">
+         <children>
+            <Accordion layoutX="14.0" layoutY="57.0" />
+            <ListView layoutX="-16.0" layoutY="-1.0" prefHeight="57.0" prefWidth="780.0" style="-fx-background-color: #ebebeb;">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <effect>
+                  <Bloom threshold="1.0" />
+               </effect>
+            </ListView>
+            <Text fill="#fd8f52" layoutX="29.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ArtPlus">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#2e4ac6" layoutX="138.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accueil">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#2e4ac6" layoutX="214.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fil d'actualité">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#2e4ac6" layoutX="323.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Evenements">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#2e4ac6" layoutX="415.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cours">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#2e4ac6" layoutX="474.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Shop">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#2e4ac6" layoutX="528.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quiz">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="#2e4ac6" layoutX="579.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Réclamation">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="12.0" />
+               </font>
+            </Text>
+            <Text layoutX="29.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Découvrez nos évènements " wrappingWidth="284.376953125">
+               <font>
+                  <Font name="Microsoft New Tai Lue" size="21.0" />
+               </font>
+            </Text>
+            <Pagination layoutX="296.0" layoutY="368.0" prefHeight="200.0" prefWidth="200.0" />
+            <Separator layoutX="-38.0" layoutY="56.0" prefHeight="3.0" prefWidth="800.0" />
+            <Spinner layoutX="578.0" layoutY="455.0" visible="false" />
+            <SplitMenuButton layoutX="645.0" layoutY="90.0" mnemonicParsing="false" text="Tous">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Action 1" />
+                  <MenuItem mnemonicParsing="false" text="Action 2" />
+               </items>
+            </SplitMenuButton>
+            <ImageView fitHeight="57.0" fitWidth="78.0" layoutX="14.0" layoutY="-1.0">
+               <image>
+                  <Image url="@../../../../../../../Users/rahma/Desktop/pi/logo.png" />
+               </image>
+            </ImageView>
+            <Slider layoutX="746.0" layoutY="140.0" orientation="VERTICAL" prefHeight="408.0" prefWidth="14.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

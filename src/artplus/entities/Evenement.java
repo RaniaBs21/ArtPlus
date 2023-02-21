@@ -12,6 +12,7 @@ import java.sql.Timestamp;
  * @author rahma
  */
 public class Evenement {
+
     private int id_ev;
     private String titre_ev;
     private String categorie;
@@ -20,8 +21,21 @@ public class Evenement {
     private String adresse_ev;
     private Timestamp dateTime_ev;
     private int nbre_place;
+    private Guide id_guide;
 
     public Evenement() {
+    }
+
+    public Evenement(int id_ev, String titre_ev, String categorie, String description_ev, String image_ev, String adresse_ev, Timestamp dateTime_ev, int nbre_place, Guide id_guide) {
+        this.id_ev = id_ev;
+        this.titre_ev = titre_ev;
+        this.categorie = categorie;
+        this.description_ev = description_ev;
+        this.image_ev = image_ev;
+        this.adresse_ev = adresse_ev;
+        this.dateTime_ev = dateTime_ev;
+        this.nbre_place = nbre_place;
+        this.id_guide = id_guide;
     }
 
     public Evenement(int id_ev, String titre_ev, String categorie, String description_ev, String image_ev, String adresse_ev, Timestamp dateTime_ev, int nbre_place) {
@@ -33,6 +47,17 @@ public class Evenement {
         this.adresse_ev = adresse_ev;
         this.dateTime_ev = dateTime_ev;
         this.nbre_place = nbre_place;
+    }
+
+    public Evenement(String titre_ev, String categorie, String description_ev, String image_ev, String adresse_ev, Timestamp dateTime_ev, int nbre_place, Guide id_guide) {
+        this.titre_ev = titre_ev;
+        this.categorie = categorie;
+        this.description_ev = description_ev;
+        this.image_ev = image_ev;
+        this.adresse_ev = adresse_ev;
+        this.dateTime_ev = dateTime_ev;
+        this.nbre_place = nbre_place;
+        this.id_guide = id_guide;
     }
 
     public Evenement(String titre_ev, String categorie, String description_ev, String image_ev, String adresse_ev, Timestamp dateTime_ev, int nbre_place) {
@@ -76,7 +101,7 @@ public class Evenement {
     public void setCategorie(String categorie) {
         this.categorie = categorie;
     }
-    
+
     public String getImage_ev() {
         return image_ev;
     }
@@ -108,10 +133,18 @@ public class Evenement {
     public void setNbre_place(int nbre_place) {
         this.nbre_place = nbre_place;
     }
+    
+    public Guide getId_guide() {
+        return id_guide;
+    }
+
+    public void setId_guide(Guide id_guide) {
+        this.id_guide = id_guide;
+    }
 
     @Override
     public String toString() {
         return "Evenement{" + "id_ev=" + id_ev + ", titre_ev=" + titre_ev + ", categorie=" + categorie + ", description_ev=" + description_ev + ", image_ev=" + image_ev + ", adresse_ev=" + adresse_ev + ", dateTime_ev=" + dateTime_ev + ", nbre_place=" + nbre_place + '}';
     }
-    
+
 }

@@ -14,6 +14,9 @@ import java.util.List;
  */
 public interface InterfaceParticipation <Participation> {
     public void ajouterParticipation(Participation p);
+    public void modifierParticipation(Participation p);
+    public void supprimerParticipation(int id); 
     public List<Participation> afficherParticipation();
+
     
 }

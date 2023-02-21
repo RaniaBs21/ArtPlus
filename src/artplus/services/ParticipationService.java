@@ -30,14 +30,14 @@ public class ParticipationService implements InterfaceParticipation<Participatio
     @Override
     public void ajouterParticipation(Participation part) {
         try {
-            String req = "INSERT INTO participation(Id_Ut,id_ev) VALUES (?,?)";
+            String req = "INSERT INTO participation(Id_Ut,id_ev,date_participation) VALUES (?,?,?)";
             PreparedStatement pst = cnx.prepareStatement(req);
-            pst.setInt(1, part.getId_user());
-            pst.setInt(2, part.getId_ev());
+            pst.setInt(1, part.getId_user().getId_ut());
+            pst.setInt(2, part.getId_ev().getId_ev());
             pst.setTimestamp(3, part.getDate_participation());
 
             pst.executeUpdate();
-            System.out.println("participation est ajoutée avec succès! ");
+            System.out.println( "L'utilisteur est participé à l'evenement avec succès! ");
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -55,15 +55,40 @@ public class ParticipationService implements InterfaceParticipation<Participatio
             while (rs.next()) {
                 Participation part = new Participation();
                 part.setId_part(rs.getInt(1));
-                part.setId_user(rs.getInt("Id_Ut"));
+                                             
+                part.setId_user(rs.(getObject("Id_Ut")));
                 part.setId_ev(rs.getInt("id_ev"));
-                part.setDate_participation(rs.getTimestamp("date_participation"));
+                part.setDate_participation(java.sql.Timestamp.from(java.time.Instant.now()));
                 listParticipation.add(part);
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
         return listParticipation;
+    }
+
+    @Override
+    public void modifierParticipation(Participation p) {
+        try {
+            String reqModif = "UPDATE `participation` SET `Id_Ut` = '" + p.getId_user()+ "', `id_ev` = '" + p.getId_ev() + "', `date_participation` = '" + p.getDate_participation() + "' WHERE `participation`.`id_part` = " +p.getId_part();
+            Statement st = cnx.createStatement();
+            st.executeUpdate(reqModif);
+            System.out.println("participation updated !");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @Override
+    public void supprimerParticipation(int id) {
+        try {
+            String req = "DELETE FROM `participation` WHERE id_part = " + id;
+            Statement st = cnx.createStatement();
+            st.executeUpdate(req);
+            System.out.println("participation supprimé avec succès!");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
 }

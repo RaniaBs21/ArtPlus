@@ -19,5 +19,6 @@ public interface InterfaceEvenements <Evenement>  {
     public void modifierEvenement(Evenement e );
     public void supprimerEvenement(int id); 
     public List<Evenement> afficherEvenements();
+    public Evenement findOneById(int id);
     
 }

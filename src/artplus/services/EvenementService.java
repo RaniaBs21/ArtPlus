@@ -6,6 +6,7 @@
 package artplus.services;
 
 import artplus.entities.Evenement;
+import artplus.entities.Guide;
 import artplus.utils.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,7 +31,7 @@ public class EvenementService implements InterfaceEvenements<Evenement> {
     @Override
     public void ajouterEvenement(Evenement e) {
         try {
-            String req2 = "INSERT INTO evenement(titre_ev, categorie_ev, description_ev, image_ev, adresse_ev, date_ev, nbre_places) VALUES (?,?,?,?,?,?,?)";
+            String req2 = "INSERT INTO `evenement`( `titre_ev`, `categorie_ev`, `description_ev`, `image_ev`, `adresse_ev`, `date_ev`, `nbre_places`, `id_g`) " + " VALUES (?,?,?,?,?,?,?,?)";
             PreparedStatement pst = cnx.prepareStatement(req2);
             pst.setString(1, e.getTitre_ev());
             pst.setString(2, e.getCategorie());
@@ -39,6 +40,7 @@ public class EvenementService implements InterfaceEvenements<Evenement> {
             pst.setString(5, e.getAdresse_ev());
             pst.setTimestamp(6, e.getDateTime_ev());
             pst.setInt(7, e.getNbre_place());
+            pst.setInt(8, e.getId_guide().getId_guide());
             pst.executeUpdate();
             System.out.println("Evenement est ajouté avec succès! ");
 
@@ -94,6 +96,30 @@ public class EvenementService implements InterfaceEvenements<Evenement> {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+
+    @Override
+    public Evenement findOneById(int id) {
+        Evenement ev = null;
+        try {
+            String req3 = "SELECT * FROM `guide` WHERE `id_gd` = " + id;
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req3);
+            while (rs.next()) {
+                ev = new Evenement();
+                ev.setId_ev(rs.getInt(1));
+                ev.setTitre_ev(rs.getString("titre_ev"));
+                ev.setDescription_ev(rs.getString("description_ev"));
+                ev.setImage_ev(rs.getString("image_ev"));
+                ev.setAdresse_ev(rs.getString("adresse_ev"));
+                ev.setDateTime_ev(rs.getTimestamp("date_ev"));
+                ev.setNbre_place(rs.getInt("nbre_places"));
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return ev;
     }
 
 }
