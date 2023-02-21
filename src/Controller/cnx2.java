@@ -9,10 +9,6 @@ package Controller;
  *
  * @author OACA
  */
-class txtnumut {
-
-    static String txt() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+class cnx2 {
     
 }
