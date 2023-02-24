@@ -58,7 +58,7 @@ public class AuthentificationController implements Initializable {
 //          VBox.getScene().getWindow().hide();
             Stage home = new Stage();
             try {
-                fxml = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+                fxml = FXMLLoader.load(getClass().getResource("/views/Menu.fxml"));
                 Scene scene = new Scene(fxml);
                 home.setScene(scene);
                 home.resizableProperty().setValue(false);

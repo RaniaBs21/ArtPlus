@@ -21,11 +21,11 @@ import javafx.stage.Stage;
  * @author OACA
  */
 public class MainClass extends Application {
-    
-   @Override
+
+    @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Authentification.fxml"));
+            Parent root = FXMLLoader.load(MainClass.class.getResource("/views/Authentification.fxml"));
 
             Scene scene = new Scene(root);
 
@@ -47,5 +47,5 @@ public class MainClass extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
