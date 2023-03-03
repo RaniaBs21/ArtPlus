@@ -24,7 +24,7 @@ public class JavaFxMain extends Application{
     public void start(Stage primaryStage) throws IOException {
         this.stage= new Stage();
         parent=FXMLLoader.load(getClass().getResource("/view/Acceuil.fxml"));
-        //parent=FXMLLoader.load(getClass().getResource("/view/Comment.fxml"));
+        // parent=FXMLLoader.load(getClass().getResource("/view/Comment.fxml"));
         Scene scene=new Scene(parent);
         stage.setScene(scene);
         stage.show();

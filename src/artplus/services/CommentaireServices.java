@@ -32,8 +32,8 @@ public class CommentaireServices implements InterfaceCommentaireServices{
     @Override
     public void ajouterCommentaire(){
         try {
-            String requete = "INSERT INTO commentaire (Description_Com,Nbre_Com,Nbre_Like_Com,Date_Com)"
-                    + " VALUES ('ranoucha l 3asla','1','13','2023-02-13') ";
+            String requete = "INSERT INTO commentaire (Description_Com,Nbre_Com,Date_Com)"
+                    + " VALUES ('ranoucha l 3asla','1','2023-02-13') ";
             Statement st = cnx.createStatement();
             
             st.executeUpdate(requete);
@@ -47,8 +47,8 @@ public class CommentaireServices implements InterfaceCommentaireServices{
     @Override
      public void ajouterCommentaire2(Commentaire c){
          try {
-            String requete2 = "INSERT INTO commentaire (Description_Com,Nbre_Com,Nbre_Like_Com,Date_Com)"
-                    +" VALUES (?,?,?,?)";
+            String requete2 = "INSERT INTO commentaire (Description_Com,Nbre_Com,Date_Com)"
+                    +" VALUES (?,?,?)";
             PreparedStatement pst = cnx.prepareStatement(requete2);
             pst.setString(1,c.getDescription_Com());
             pst.setInt(2,c.getNbre_Com());
